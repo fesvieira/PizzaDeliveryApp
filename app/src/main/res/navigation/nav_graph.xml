@@ -45,5 +45,9 @@
         android:id="@+id/summaryFragment"
         android:name="com.felipesvieira.pizzadelivery.fragments.SummaryFragment"
         android:label="fragment_summary"
-        tools:layout="@layout/fragment_summary" />
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

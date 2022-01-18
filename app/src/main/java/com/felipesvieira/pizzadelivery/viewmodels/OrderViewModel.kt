@@ -3,6 +3,7 @@ package com.felipesvieira.pizzadelivery.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.felipesvieira.pizzadelivery.data.Datasource
 
 class OrderViewModel: ViewModel() {
 
@@ -44,10 +45,39 @@ class OrderViewModel: ViewModel() {
         return itemCounter[name]!!
     }
 
-    fun filterSelected(): Map<String, Int> {
+    fun getPrice (name: String): Double {
+        val dataset1 = Datasource.saltPizzas
+        var price = 0.0
+        dataset1.forEach {
+            if (it.flavorName == name) {
+                price = it.flavorPrice
+            }
+        }
+        val dataset2 = Datasource.sweetPizzas
+        dataset2.forEach {
+            if (it.flavorName == name) {
+                price = it.flavorPrice
+            }
+        }
+        val dataset3 = Datasource.drinks
+        dataset3.forEach {
+            if (it.flavorName == name) {
+                price = it.flavorPrice
+            }
+        }
 
-        return itemCounter.filter { (key, value) -> value > 0 }
+        return price
     }
+
+    fun getSelected(): Map<String, Int> {
+        return itemCounter.filter {it.value > 0}
+    }
+
+    fun resetOrder() {
+        itemCounter.clear()
+        _orderPrice.value = 0.0
+    }
+
 
 
 }
