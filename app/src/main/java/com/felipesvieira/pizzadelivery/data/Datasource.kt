@@ -30,7 +30,7 @@ object Datasource {
 
     val drinks = listOf(
         Flavor(R.drawable.drink_coca, "Coca-Cola", 15.99),
-        Flavor(R.drawable.drink_guarana, "Other refrig...", 4.99),
+        Flavor(R.drawable.drink_guarana, "GuaranaJesus", 4.99),
         Flavor(R.drawable.drink_juice, "Juice",8.99)
     )
 
