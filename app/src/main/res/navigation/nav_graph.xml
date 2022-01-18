@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.felipesvieira.pizzadelivery.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_saltFragment"
+            app:destination="@id/saltFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saltFragment"
+        android:name="com.felipesvieira.pizzadelivery.fragments.SaltFragment"
+        android:label="fragment_flavors"
+        tools:layout="@layout/fragment_salt" >
+        <action
+            android:id="@+id/action_saltFragment_to_sweetFragment"
+            app:destination="@id/sweetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sweetFragment"
+        android:name="com.felipesvieira.pizzadelivery.fragments.SweetFragment"
+        android:label="fragment_sweet"
+        tools:layout="@layout/fragment_sweet" >
+        <action
+            android:id="@+id/action_sweetFragment_to_drinksFragment"
+            app:destination="@id/drinksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinksFragment"
+        android:name="com.felipesvieira.pizzadelivery.fragments.DrinksFragment"
+        android:label="fragment_drinks"
+        tools:layout="@layout/fragment_drinks" />
+</navigation>
