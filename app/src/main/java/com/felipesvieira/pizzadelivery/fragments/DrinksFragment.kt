@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.felipesvieira.pizzadelivery.adapter.FlavorAdapterDrink
+import com.felipesvieira.pizzadelivery.adapter.DrinksAdapter
 import com.felipesvieira.pizzadelivery.databinding.FragmentDrinksBinding
 import com.felipesvieira.pizzadelivery.viewmodels.OrderViewModel
 
@@ -19,11 +19,11 @@ class DrinksFragment : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDrinksBinding.inflate(inflater, container, false)
 
         binding.apply {
-            recyclerFlavors.adapter = FlavorAdapterDrink(sharedViewModel)
+            recyclerFlavors.adapter = DrinksAdapter(sharedViewModel)
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
         }

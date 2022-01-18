@@ -44,7 +44,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/image_flavor"
             app:layout_constraintTop_toBottomOf="@id/text_name"
-            android:text="s" />
+             />
 
         <TextView
             android:id="@+id/text_quantity"

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PizzaDelivery</string>
     <string name="order_price">Total = $ %.2f</string>
+    <string name="item_price"> $ %s </string>
 </resources>

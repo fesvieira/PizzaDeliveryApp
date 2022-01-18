@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.felipesvieira.pizzadelivery.adapter.FlavorAdapterSweet
+import com.felipesvieira.pizzadelivery.adapter.SweetAdapter
 import com.felipesvieira.pizzadelivery.databinding.FragmentSweetBinding
 import com.felipesvieira.pizzadelivery.viewmodels.OrderViewModel
 
@@ -20,11 +20,11 @@ class SweetFragment : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSweetBinding.inflate(inflater, container, false)
 
         binding.apply {
-            recyclerFlavors.adapter = FlavorAdapterSweet(sharedViewModel)
+            recyclerFlavors.adapter = SweetAdapter(sharedViewModel)
 
             buttonNext.setOnClickListener{
                 val action = SweetFragmentDirections.actionSweetFragmentToDrinksFragment()
