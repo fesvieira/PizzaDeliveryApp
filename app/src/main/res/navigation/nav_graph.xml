@@ -36,5 +36,14 @@
         android:id="@+id/drinksFragment"
         android:name="com.felipesvieira.pizzadelivery.fragments.DrinksFragment"
         android:label="fragment_drinks"
-        tools:layout="@layout/fragment_drinks" />
+        tools:layout="@layout/fragment_drinks" >
+        <action
+            android:id="@+id/action_drinksFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.felipesvieira.pizzadelivery.fragments.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
 </navigation>

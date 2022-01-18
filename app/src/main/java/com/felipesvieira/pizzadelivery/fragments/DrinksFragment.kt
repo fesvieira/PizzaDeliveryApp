@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.felipesvieira.pizzadelivery.adapter.DrinksAdapter
 import com.felipesvieira.pizzadelivery.databinding.FragmentDrinksBinding
 import com.felipesvieira.pizzadelivery.viewmodels.OrderViewModel
@@ -26,6 +27,11 @@ class DrinksFragment : Fragment(){
             recyclerFlavors.adapter = DrinksAdapter(sharedViewModel)
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
+
+            buttonNext.setOnClickListener{
+                val action = DrinksFragmentDirections.actionDrinksFragmentToSummaryFragment()
+                findNavController().navigate(action)
+            }
         }
 
         return binding.root

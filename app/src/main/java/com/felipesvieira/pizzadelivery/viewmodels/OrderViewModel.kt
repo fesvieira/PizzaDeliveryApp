@@ -8,9 +8,9 @@ import kotlin.math.round
 
 class OrderViewModel: ViewModel() {
 
-    private var itemCounter = mutableMapOf<String, Int>()
+    private val itemCounter = mutableMapOf<String, Int>()
 
-    private var _orderPrice = MutableLiveData(0.00)
+    private val _orderPrice = MutableLiveData(0.00)
     val orderPrice: LiveData<Double> = _orderPrice
 
 
