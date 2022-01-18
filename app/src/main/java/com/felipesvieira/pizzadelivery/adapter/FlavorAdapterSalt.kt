@@ -46,11 +46,11 @@ class FlavorAdapterSalt(private val viewModel: OrderViewModel) : RecyclerView.Ad
         }
 
         holder.increaseButton.setOnClickListener{
-            holder.quantityItem.text = viewModel.increaseQuantity(item.flavorName).toString()
+            holder.quantityItem.text = viewModel.increaseQuantity(item.flavorName, item.flavorPrice).toString()
         }
 
         holder.decreaseButton.setOnClickListener{
-            val quantity = viewModel.decreaseQuantity(item.flavorName)
+            val quantity = viewModel.decreaseQuantity(item.flavorName, item.flavorPrice)
             if (quantity != 0) {
                 holder.quantityItem.text = quantity.toString()
             } else {

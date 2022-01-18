@@ -11,7 +11,7 @@ object Datasource {
         Flavor(R.drawable.pizza_calabresa, "Calabresa", 25.99,),
         Flavor(R.drawable.pizza_frango, "Chicken", 23.99),
         Flavor(R.drawable.pizza_portuguesa, "Portuguese", 29.99),
-        Flavor(R.drawable.pizza_presunto, "Presunto", 21.30),
+        Flavor(R.drawable.pizza_presunto, "Presunto", 21.35),
         Flavor(R.drawable.pizza_queijo, "Cheese", 21.99),
         Flavor(R.drawable.pizza_rucula, "Rucula", 23.99),
         Flavor(R.drawable.pizza_strogonoff, "Stroganoff", 32.99)

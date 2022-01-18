@@ -9,17 +9,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.felipesvieira.pizzadelivery.R
 import com.felipesvieira.pizzadelivery.data.Datasource.drinks
+import com.felipesvieira.pizzadelivery.viewmodels.OrderViewModel
 
 
-class FlavorAdapterDrink : RecyclerView.Adapter<FlavorAdapterDrink.FlavorViewHolder>() {
+class FlavorAdapterDrink(private val sharedViewModel: OrderViewModel) : RecyclerView.Adapter<FlavorAdapterDrink.FlavorViewHolder>() {
 
     class FlavorViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val imageItem: ImageView = view.findViewById(R.id.image_flavor)
         val nameItem: TextView = view.findViewById(R.id.text_name)
         val priceItem: TextView = view.findViewById(R.id.text_price)
-        val quantity: TextView = view.findViewById(R.id.text_quantity)
-        val buttonIncrease: Button = view.findViewById(R.id.button_increase)
-        val buttonDecrease: Button = view.findViewById(R.id.button_decrease)
+        val increaseButton: Button = view.findViewById(R.id.button_increase)
+        val decreaseButton: Button = view.findViewById(R.id.button_decrease)
+        val quantityItem: TextView = view.findViewById(R.id.text_quantity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlavorViewHolder {
@@ -31,16 +32,31 @@ class FlavorAdapterDrink : RecyclerView.Adapter<FlavorAdapterDrink.FlavorViewHol
 
     override fun onBindViewHolder(holder: FlavorViewHolder, position: Int) {
         val item = drinks[position]
+        val quantity = sharedViewModel.getQuantity(item.flavorName)
 
         holder.imageItem.setImageResource(item.flavorImage)
         holder.nameItem.text = item.flavorName
         holder.priceItem.text = "R$ " + item.flavorPrice.toString()
 
-        holder.buttonIncrease.setOnClickListener{
-            if (holder.quantity.text == "") {
-                holder.quantity.text = "1"
+        if (quantity != 0) {
+            holder.quantityItem.text = quantity.toString()
+        } else {
+            holder.quantityItem.text = ""
+        }
+
+        holder.increaseButton.setOnClickListener{
+            holder.quantityItem.text = sharedViewModel.increaseQuantity(
+                item.flavorName,
+                item.flavorPrice
+            ).toString()
+        }
+
+        holder.decreaseButton.setOnClickListener{
+            val quantity = sharedViewModel.decreaseQuantity(item.flavorName, item.flavorPrice)
+            if (quantity != 0) {
+                holder.quantityItem.text = quantity.toString()
             } else {
-                holder.quantity.text = (holder.quantity.text.toString().toInt() + 1).toString()
+                holder.quantityItem.text = ""
             }
 
         }

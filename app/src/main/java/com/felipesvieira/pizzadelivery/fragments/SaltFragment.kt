@@ -23,15 +23,19 @@ class SaltFragment : Fragment(){
     ): View? {
         binding = FragmentSaltBinding.inflate(inflater, container, false)
 
-        binding.recyclerFlavors.adapter = FlavorAdapterSalt(sharedViewModel)
-
-        binding.buttonNext.setOnClickListener{
-            val action = SaltFragmentDirections.actionSaltFragmentToSweetFragment()
-            findNavController().navigate(action)
+        binding.apply {
+            recyclerFlavors.adapter = FlavorAdapterSalt(sharedViewModel)
+            buttonNext.setOnClickListener {
+                val action = SaltFragmentDirections.actionSaltFragmentToSweetFragment()
+                findNavController().navigate(action)
+            }
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
         }
 
-
-
         return binding.root
+
     }
+
+
 }
