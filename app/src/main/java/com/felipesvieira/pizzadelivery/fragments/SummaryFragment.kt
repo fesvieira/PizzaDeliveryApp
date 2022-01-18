@@ -20,9 +20,10 @@ class SummaryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSummaryBinding.inflate(inflater, container, false)
-
+        val selected = sharedViewModel.filterSelected()
         binding.apply {
             viewModel = sharedViewModel
+
         }
 
         return binding.root

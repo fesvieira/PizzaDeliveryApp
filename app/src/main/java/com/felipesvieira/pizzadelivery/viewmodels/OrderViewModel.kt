@@ -3,8 +3,6 @@ package com.felipesvieira.pizzadelivery.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlin.math.ceil
-import kotlin.math.round
 
 class OrderViewModel: ViewModel() {
 
@@ -44,6 +42,11 @@ class OrderViewModel: ViewModel() {
         }
         itemCounter[name] = quantity
         return itemCounter[name]!!
+    }
+
+    fun filterSelected(): Map<String, Int> {
+
+        return itemCounter.filter { (key, value) -> value > 0 }
     }
 
 

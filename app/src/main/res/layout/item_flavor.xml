@@ -31,7 +31,7 @@
             android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@id/image_flavor"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Abacaxi" />
+            tools:text="Pineapple" />
 
         <TextView
             android:id="@+id/text_price"

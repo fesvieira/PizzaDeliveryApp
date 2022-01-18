@@ -6,15 +6,15 @@ import com.felipesvieira.pizzadelivery.model.Flavor
 object Datasource {
 
     val saltPizzas = listOf(
-        Flavor(R.drawable.pizza_alho, "Alho", 24.99),
+        Flavor(R.drawable.pizza_alho, "Garlic", 24.99),
         Flavor(R.drawable.pizza_bacon, "Bacon", 27.99),
-        Flavor(R.drawable.pizza_calabresa, "Calabresa", 25.99,),
+        Flavor(R.drawable.pizza_calabresa, "Pepperoni", 25.99,),
         Flavor(R.drawable.pizza_frango, "Chicken", 23.99),
         Flavor(R.drawable.pizza_portuguesa, "Portuguese", 29.99),
-        Flavor(R.drawable.pizza_presunto, "Presunto", 21.35),
+        Flavor(R.drawable.pizza_presunto, "Ham", 21.35),
         Flavor(R.drawable.pizza_queijo, "Cheese", 21.99),
-        Flavor(R.drawable.pizza_rucula, "Rucula", 23.99),
-        Flavor(R.drawable.pizza_strogonoff, "Stroganoff", 32.99)
+        Flavor(R.drawable.pizza_rucula, "Arugula", 23.99),
+        Flavor(R.drawable.pizza_strogonoff, "Beef and cream", 32.99)
     )
 
     val sweetPizzas = listOf(
@@ -30,7 +30,7 @@ object Datasource {
 
     val drinks = listOf(
         Flavor(R.drawable.drink_coca, "Coca-Cola", 15.99),
-        Flavor(R.drawable.drink_guarana, "Other refrigerant", 4.99),
+        Flavor(R.drawable.drink_guarana, "Other refrig...", 4.99),
         Flavor(R.drawable.drink_juice, "Juice",8.99)
     )
 
