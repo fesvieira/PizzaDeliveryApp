@@ -35,7 +35,8 @@ class SummaryFragment : Fragment() {
                 textNames.text = textNames.text.toString() + "\n\n" + it.key
                 textQuantities.text = textQuantities.text.toString() + "\n\n" + it.value
                 val sumPrice = sharedViewModel.getPrice(it.key) * it.value
-                textPrices.text = textPrices.text.toString() + "\n\n" + sumPrice
+                textPrices.text = textPrices.text.toString() + "\n\n" +
+                        String.format("%.2f", sumPrice)
             }
 
             buttonReset.setOnClickListener{

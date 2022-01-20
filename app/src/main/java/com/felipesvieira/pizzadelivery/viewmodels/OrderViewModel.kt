@@ -22,48 +22,42 @@ class OrderViewModel: ViewModel() {
     }
 
     fun increaseQuantity(name: String, flavorPrice: Double): Int {
-        val quantity = itemCounter[name]!! + 1
+        val quantity = (itemCounter[name]?:0) + 1
         itemCounter[name] = quantity
 
-        _orderPrice.value = _orderPrice.value!!.plus(flavorPrice)
+        _orderPrice.value = (_orderPrice.value?:0.0).plus(flavorPrice)
         _orderPrice.value = String.format("%.2f", _orderPrice.value).toDouble()
 
-        return itemCounter[name]!!
+        return (itemCounter[name]?:0)
     }
 
     fun decreaseQuantity(name: String, flavorPrice: Double): Int {
-        var quantity = itemCounter[name]!!
+        var quantity = (itemCounter[name]?:0)
 
-        if (itemCounter[name]!! > 0) {
+        if ((itemCounter[name]?:0) > 0) {
             quantity -= 1
 
-            _orderPrice.value = _orderPrice.value!!.minus(flavorPrice)
+            _orderPrice.value = (_orderPrice.value?:0.0).minus(flavorPrice)
             _orderPrice.value = String.format("%.2f", _orderPrice.value).toDouble()
 
         }
         itemCounter[name] = quantity
-        return itemCounter[name]!!
+        return (itemCounter[name]?:0)
     }
 
     fun getPrice (name: String): Double {
-        val dataset1 = Datasource.saltPizzas
         var price = 0.0
-        dataset1.forEach {
-            if (it.flavorName == name) {
-                price = it.flavorPrice
-            }
+
+        Datasource.saltPizzas.forEach {
+            if (it.flavorName == name) price = it.flavorPrice
         }
-        val dataset2 = Datasource.sweetPizzas
-        dataset2.forEach {
-            if (it.flavorName == name) {
-                price = it.flavorPrice
-            }
+
+        Datasource.sweetPizzas.forEach {
+            if (it.flavorName == name) price = it.flavorPrice
         }
-        val dataset3 = Datasource.drinks
-        dataset3.forEach {
-            if (it.flavorName == name) {
-                price = it.flavorPrice
-            }
+
+        Datasource.drinks.forEach {
+            if (it.flavorName == name) price = it.flavorPrice
         }
 
         return price
@@ -77,7 +71,4 @@ class OrderViewModel: ViewModel() {
         itemCounter.clear()
         _orderPrice.value = 0.0
     }
-
-
-
 }
