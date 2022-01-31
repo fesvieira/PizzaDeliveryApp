@@ -1,3 +1,3 @@
 # PizzaDelivery
  
-O aplicativo tem como base recursos como MVVM e Live Data, no mesmo a interação é de montar um pedido, após isso o app faz um resumo dos itens escolhidos e uma nota mostrando o total
+The application is based on resources such as MVVM and Live Data, in which the interaction is to assemble an order, after that the app makes a summary of the chosen items and a note showing the total
